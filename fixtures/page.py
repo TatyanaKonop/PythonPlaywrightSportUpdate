@@ -13,7 +13,7 @@ def pytest_addoption(parser):
 
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def browser(request) -> Page:
     playwright = sync_playwright().start()
     if request.config.getoption("bn") == 'remote_chrome':

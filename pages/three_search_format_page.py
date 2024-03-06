@@ -6,7 +6,7 @@ from pages.base_page import BasePage
 class ThreeSearchFormatPage(BasePage):
     def __init__(self, page: Page) -> None:
         super().__init__(page)
-        self.result_title = Title(page.locator("//div[@class='container']/div/span[last()]"), name='Search title')
+        self.result_title = Title(page.locator("//div[@class='container']/div/span[last()]"), name='Search result block')
 
     def text_search_present(self, text):
         self.result_title.should_be_visible()
