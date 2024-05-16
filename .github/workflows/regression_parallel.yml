@@ -58,7 +58,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4, 5]  # Define the number of shards here
+        shard: [1, 2, 3, 4]  # Define the number of shards here
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -70,4 +70,4 @@ jobs:
           python -m pip install -r requirements.txt
           pip install pytest-xdist
       - name: Run tests
-        run: "pytest -n auto -o junit_family=xunit2 -o junit_directory=test-reports shard_${{ matrix.shard }}.py"
+        run: "pytest -n 4  -o junit_family=xunit2 -o junit_directory=test-reports shard_${{ matrix.shard }}.py"
