@@ -70,4 +70,4 @@ jobs:
           python -m pip install -r requirements.txt
           pip install pytest-xdist
       - name: Run tests
-        run: "pytest -n 4  -o junit_family=xunit2 -o junit_directory=test-reports shard_${{ matrix.shard }}.py"
+        run: pytest -n auto -o junit_family=xunit2 -o junit_directory=test-reports test_set.py
