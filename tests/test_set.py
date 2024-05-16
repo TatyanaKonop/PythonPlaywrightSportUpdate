@@ -40,8 +40,9 @@ def test_search(
 @allure.severity(allure.severity_level.NORMAL)
 @allure.description(
     "Test that verifies a user navigates throw main menu and sidebar and on the search results page a search result block is displayed")
+@pytest.mark.parametrize('shard', [1, 2, 3, 4])
 @pytest.mark.regression
-def test_navigate_sidebar(browser):
+def test_navigate_sidebar(shard, browser):
     sections_text_sidebar = ['Internal', 'Foot Orienteering Commission', '3rd Sprint Format: Knock-Out Sprint']
     SECTION_TEXT_NAVBAR = ['Orienteering', 'Internal']
     URI = ""
